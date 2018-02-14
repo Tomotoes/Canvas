@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas">不支持canvas</canvas>
+    <script>
+        const canvas=document.getElementById('canvas');
+        canvas.height=1000;
+        canvas.width=1000;
+        const context=canvas.getContext("2d");
+        context.lineWidth = 6;
+        context.strokeStyle = "#0090D2";
+        
+        context.moveTo(373, 259);
+        context.bezierCurveTo(113, 388, 243, 389, 364, 243);
+        /* http://www.j--d.com/bezier */
+        context.stroke();
+    </script>
+</body>
+</html>

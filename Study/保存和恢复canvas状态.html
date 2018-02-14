@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas">浏览器不支持 canvas</canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        canvas.height = 1000;
+        canvas.width = 1000;
+
+        const context = canvas.getContext("2d");
+        context.strokeStyle="#ccc";
+        context.lineWidth=50;
+        context.fillStyle="#999";
+        context.strokeRect(20,20,200,150);
+        context.fillRect(20,20,200,150)
+
+        context.save();//保存状态
+
+        context.lineWidth=10
+        context.fillStyle="red";
+        context.strokeStyle="yellow";
+        context.strokeRect(100,100,200,200);
+
+        context.restore();//恢复状态 使用上次保存的状态
+
+        // context.fillRect(100,100,500,500);
+        context.rect(100,100,500,500);
+        context.fill();
+
+        /* 
+            使用 context.save() 保存状态
+
+            使用 context.restore() 恢复状态
+
+            context.fillRect(10,10,10,10);
+            等价于
+            context.rect();
+            context.fill();
+         */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas">浏览器不支持 canvas</canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        canvas.height=1000;
+        canvas.width=1000;
+
+        const context = canvas.getContext("2d");
+
+        context.fillStyle="#222";
+
+        /* translate(水平方向的位移距离，垂直方向的位移距离) */
+        context.translate(100,100);
+
+        /* scale(水平方向的缩放比例，垂直方向的缩放比例) */
+        context.scale(2,1);
+
+        /* rotate 旋转的弧度 角度 = 弧度 * Math.PI / 180 正数 顺时针旋转 负数 逆时针旋转*/
+        context.rotate(30*Math.PI/180);
+
+        context.fillRect(20,20,400,400);
+        
+    </script>
+</body>
+</html>

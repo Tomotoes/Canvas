@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- canvas 默认是 300 高 150宽，并且是 行内元素 -->
+    <canvas id="canvas" height=580 width=824 style="border:solid 1px #aaa;margin:50px auto;display:block">
+        当前浏览器不支持 canvas 如果支持 文字 覆盖，反之 文字显示 
+    </canvas>
+    <!-- 
+        canvas 默认是一张图片
+        如果指定canvas大小，通常在 canvas标签中的 height width属性中赋值，
+        或者 在 js 中 使用 canvas.height = 1024; canvas.width = 768;
+        不建议使用 CSS，
+        并且 不能带单位 
+    -->
+    <!-- <script src="script.js"></script> -->
+
+    <!-- 
+        开始绘制的前奏
+
+        1. const Canvas = document.getELementById("canvas");
+        2. const context = Canvas.getContext("2d");
+     -->
+
+     <!-- 
+         如何画一条直线？
+         
+         先设置 绘图的状态
+         context.moveTo(startX,startY);
+         context.lineTo(endX,endY);
+         
+         在进行具体的绘制
+         context.stroke();//行程
+
+      -->
+      <script>
+        const canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");
+        
+        // /* 设置起点坐标 */
+        // context.moveTo(824,580);
+
+        // /* 设置终点坐标 */
+        // context.lineTo(0,0);
+
+        // context.lineTo(824,0);
+        
+        // context.lineTo(824,580);
+        
+
+        /* 线条宽度 */
+        context.lineWidth = 5;
+
+        /* 颜色 */
+        context.strokeStyle="blue";
+
+        // /* 调用画图 API */
+        // context.stroke();
+
+
+        // /* 时刻 明确一个概念 canvas 是基于 状态绘图的。 */
+        // /* 以上的 线段 会 使用上面的 lineWidth 属性，以上的线段 会使用下面的 strokeStyle 属性 */
+
+        // context.moveTo(84,80);
+
+        // context.lineTo(50,60);
+
+        // context.strokeStyle="red";
+
+        // context.stroke();
+
+        // /* 使用 beginPath closePath 封装状态 */
+        // context.beginPath();
+        // context.moveTo(20,80);
+
+        // context.lineTo(510,600);
+        // context.strokeStyle="green";
+        
+        // context.closePath();
+        // context.stroke();
+
+
+        /* 填充 */
+        //context.fillStyle="yellow";
+        //context.fill();
+
+        /* 阮老师的教程 */
+
+        context.beginPath();
+        context.arc(100,100,50,0,Math.PI*2,true);
+        /* 开始坐标 半径 开始角度 结束角度 注意这里是 Math.PI 是否顺时针绘制 */
+        context.fillStyle="red";
+        context.fill();
+        context.stroke();
+        context.closePath();
+        
+        context.beginPath();
+        
+        context.fillStyle="green";
+        context.closePath();
+        
+        context.fillRect(100,100,200,500);
+        context.strokeRect(0,0,200,500)
+        context.stroke();
+
+        
+        
+
+       
+      </script>
+</body>
+</html>
